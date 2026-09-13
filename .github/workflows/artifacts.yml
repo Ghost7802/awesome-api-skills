@@ -30,7 +30,7 @@ jobs:
         run: npm sbom --sbom-format=spdx > sbom.spdx.json
 
       - name: Upload Artifacts to Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: |
             dist/artifacts/registry.json
