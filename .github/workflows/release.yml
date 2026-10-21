@@ -17,13 +17,12 @@ jobs:
       NPM_PUBLISH_ENABLED: ${{ secrets.NPM_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@v4
         with:
           node-version: 22.x
-          cache: 'npm'
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Explain unavailable npm publishing
         if: env.NPM_PUBLISH_ENABLED != 'true'
@@ -32,10 +31,9 @@ jobs:
 
       - name: Create Release Pull Request or Publish
         id: changesets
-        uses: changesets/action@v2
+        uses: changesets/action@v1
         with:
           version: npm run version:packages
-          # An empty publish input keeps Changesets in release-PR-only mode.
           publish: ${{ env.NPM_PUBLISH_ENABLED == 'true' && 'npm run release:packages' || '' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

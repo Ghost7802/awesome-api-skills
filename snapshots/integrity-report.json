@@ -8,6 +8,10 @@
     "checksum": "ba6267566b17f60f80a46201a77846ef4ca08616e7b2212a80587db6a3b4887a"
   },
   {
+    "id": "anthropic-mcp",
+    "checksum": "08f24c7a22bf67b274b4d48e0b028810ef14e5f2d3f74520509d144a9883419d"
+  },
+  {
     "id": "argo-cd",
     "checksum": "ca825c1b1b5e78ec9cafdf4bc9727ec165e863a1be671173a6066dfc2329b066"
   },
@@ -36,6 +40,10 @@
     "checksum": "cf0f92b43ed86eb39e0401d340a891e6133e07ddfe21c792d178f212229ef6d5"
   },
   {
+    "id": "better-sqlite3",
+    "checksum": "a906e9e9181915ed0d6b92996a28bc741b6dcc1afd77a2a12d46987dd60fefd6"
+  },
+  {
     "id": "biome",
     "checksum": "034691a23d8346b8132cbd273d74e57e425f51265cf9ae63e79af810786e324b"
   },
@@ -58,6 +66,10 @@
   {
     "id": "cloudflare",
     "checksum": "9400054c445b77264ee1846237f6a73ea9a734fe217e8f727fa40b2b28e71d91"
+  },
+  {
+    "id": "cloudflare-d1",
+    "checksum": "5bd1ae4d824dadf44234905f2ab80576ef32f20db1018217ad3957f88b827798"
   },
   {
     "id": "cloudflare-workers",
@@ -184,6 +196,10 @@
     "checksum": "093dcc5cf9d8062ff6b2f45247b6339ecb89888fb35dd9835cff1c435b72a3d1"
   },
   {
+    "id": "langgraph",
+    "checksum": "9ab02c142df0cf74e65a0059134c1ed376a4c2d1f1382d20895d3153014a2221"
+  },
+  {
     "id": "lemon-squeezy",
     "checksum": "510a8f8bc7c22283136bc7ce7393aa7b7123579900907d7481815f7d277456f2"
   },
@@ -296,6 +312,10 @@
     "checksum": "151d583e66f89a7a2e5d2ec32282f8b5918e5ef36de32d950be73e3092268f0c"
   },
   {
+    "id": "polar",
+    "checksum": "f5adaccb4c9cbda4a5a55d71367190984a34a0ba738b87782d41c81703d48b3a"
+  },
+  {
     "id": "postgresql",
     "checksum": "6c908feb36dac1cc243c2973c5a837900f6cc56f5825ad6b3c7be00036e13ac4"
   },
@@ -392,6 +412,10 @@
     "checksum": "6684d50527f0e6bef136bb64f24f9d3b08e235d225c554b70f65335f0db854ef"
   },
   {
+    "id": "supabase-ssr",
+    "checksum": "e99b663e699422fa3edf6cb021c8828b05dc545b9aff191bb3a55041a30bd8dd"
+  },
+  {
     "id": "sveltekit",
     "checksum": "8151076be6d72e1b22ad65fd9a92395fe03e8283d93e5f98535b4b5b23c609d7"
   },
@@ -440,8 +464,16 @@
     "checksum": "31d602173a8ce3827468d890a6ad0ff9e5c4f3a27338503a1f757e0209a65e60"
   },
   {
+    "id": "upstash-ratelimit",
+    "checksum": "7e9982bd7fc2af3b1fafc1ac160128ebd2c48a8ebdf03536e74c287fe75df1a7"
+  },
+  {
     "id": "vercel",
     "checksum": "d0773c8ffe90d23b2304034f244d26eb6772d6d22fd33fab2e7ba22e8c92bbe5"
+  },
+  {
+    "id": "vercel-ai-sdk",
+    "checksum": "f809237d1dc29dd1e26817aa7727d4bbdbae56eee8d5296cedd59eb9b635c8e1"
   },
   {
     "id": "vitest",
@@ -462,5 +494,9 @@
   {
     "id": "xquik",
     "checksum": "78e8702c79dbda8c40c0d64699d499917b8915e9cb1034081dacbf282954ade0"
+  },
+  {
+    "id": "zod",
+    "checksum": "7313bd01554e057a8be1f61eec01530b4b3a8d06c2a06ab4fbe718d17271e1c2"
   }
 ]

@@ -63,6 +63,58 @@
       "id": "anthropic"
     },
     {
+      "name": "anthropic-mcp",
+      "version": "1.0.0",
+      "description": "Model Context Protocol (MCP) SDK for exposing deterministic tools, resources, and prompts to AI coding agents.",
+      "categories": [
+        "AI",
+        "Developer Tools"
+      ],
+      "languages": [
+        "typescript",
+        "python"
+      ],
+      "author": "Awesome API Skills Team",
+      "license": "MIT",
+      "links": {
+        "API Reference": "https://modelcontextprotocol.io/docs"
+      },
+      "relationships": [
+        {
+          "target": "anthropic",
+          "type": "integrates_with"
+        },
+        {
+          "target": "zod",
+          "type": "depends_on"
+        }
+      ],
+      "schemaVersion": "1.0.0",
+      "validationStatus": "validated",
+      "maintainer": "Awesome API Skills Team",
+      "lastUpdated": "2026-10-21",
+      "documentationSource": "https://modelcontextprotocol.io/docs",
+      "supportedAgents": [
+        "cursor",
+        "claude-code",
+        "cline",
+        "continue"
+      ],
+      "compatibility": "SKILL.md v1.0",
+      "lastVerified": "2026-10-21",
+      "pitfalls": [
+        "Writing console.log() debug output to stdout in stdio MCP servers (corrupts JSON-RPC 2.0 wire frames; always log to console.error / stderr)",
+        "Omitting isError: true on failed tool call responses instead of returning structured tool error content",
+        "Using outdated Server class boilerplate instead of high-level McpServer from @modelcontextprotocol/sdk/server/mcp.js"
+      ],
+      "checklist": [
+        "All diagnostic logging uses console.error() so stdout remains pure JSON-RPC",
+        "Tools registered via server.tool(name, zodSchemaShape, handler)",
+        "StdioServerTransport connected via await server.connect(transport)"
+      ],
+      "id": "anthropic-mcp"
+    },
+    {
       "name": "argo-cd",
       "version": "1.0.0",
       "description": "Declarative continuous deployment for Kubernetes.",
@@ -361,6 +413,57 @@
       "id": "better-auth"
     },
     {
+      "name": "better-sqlite3",
+      "version": "1.0.0",
+      "description": "Fastest and simplest synchronous SQLite3 library for Node.js with WAL concurrency and atomic transaction wrappers.",
+      "categories": [
+        "Databases"
+      ],
+      "languages": [
+        "typescript",
+        "sql"
+      ],
+      "author": "Awesome API Skills Team",
+      "license": "MIT",
+      "links": {
+        "API Reference": "https://github.com/WiseLibs/better-sqlite3/blob/master/docs/api.md"
+      },
+      "relationships": [
+        {
+          "target": "sqlite",
+          "type": "implements"
+        },
+        {
+          "target": "drizzle",
+          "type": "works_well_with"
+        }
+      ],
+      "schemaVersion": "1.0.0",
+      "validationStatus": "validated",
+      "maintainer": "Awesome API Skills Team",
+      "lastUpdated": "2026-10-21",
+      "documentationSource": "https://github.com/WiseLibs/better-sqlite3/blob/master/docs/api.md",
+      "supportedAgents": [
+        "cursor",
+        "claude-code",
+        "cline",
+        "continue"
+      ],
+      "compatibility": "SKILL.md v1.0",
+      "lastVerified": "2026-10-21",
+      "pitfalls": [
+        "Awaiting db.prepare().get() or treating better-sqlite3 methods as Promises (all operations are strictly synchronous)",
+        "Forgetting db.pragma('journal_mode = WAL') after opening the database, resulting in SQLITE_BUSY lock contention under concurrent reads",
+        "Running async functions inside db.transaction() callbacks (transactions throw if callback returns a Promise)"
+      ],
+      "checklist": [
+        "db.pragma('journal_mode = WAL') and db.pragma('foreign_keys = ON') executed on connection initialization",
+        "Prepared statements cached or reused via db.prepare()",
+        "Batch writes wrapped inside synchronous db.transaction((items) => { ... })"
+      ],
+      "id": "better-sqlite3"
+    },
+    {
       "name": "biome",
       "version": "1.0.0",
       "description": "One toolchain for your web project.",
@@ -643,6 +746,63 @@
       "compatibility": "SKILL.md v1.0",
       "lastVerified": "2026-07-02",
       "id": "cloudflare"
+    },
+    {
+      "name": "cloudflare-d1",
+      "version": "1.0.0",
+      "description": "Cloudflare's native serverless SQLite edge database with read replication, batch transactions, and Drizzle ORM support.",
+      "categories": [
+        "Databases",
+        "Cloud",
+        "Serverless"
+      ],
+      "languages": [
+        "typescript",
+        "sql"
+      ],
+      "author": "Awesome API Skills Team",
+      "license": "MIT",
+      "links": {
+        "API Reference": "https://developers.cloudflare.com/d1/"
+      },
+      "relationships": [
+        {
+          "target": "cloudflare-workers",
+          "type": "depends_on"
+        },
+        {
+          "target": "drizzle",
+          "type": "works_well_with"
+        },
+        {
+          "target": "turso",
+          "type": "alternative_to"
+        }
+      ],
+      "schemaVersion": "1.0.0",
+      "validationStatus": "validated",
+      "maintainer": "Awesome API Skills Team",
+      "lastUpdated": "2026-10-21",
+      "documentationSource": "https://developers.cloudflare.com/d1/",
+      "supportedAgents": [
+        "cursor",
+        "claude-code",
+        "cline",
+        "continue"
+      ],
+      "compatibility": "SKILL.md v1.0",
+      "lastVerified": "2026-10-21",
+      "pitfalls": [
+        "Using string interpolation in env.DB.prepare() instead of parameterized .bind() calls (opening SQL injection vulnerabilities)",
+        "Attempting interactive BEGIN TRANSACTION / COMMIT SQL statements instead of using env.DB.batch([...])",
+        "Forgetting to bind d1_databases in wrangler.toml / wrangler.jsonc"
+      ],
+      "checklist": [
+        "All user inputs bound via env.DB.prepare(sql).bind(...params)",
+        "Multi-statement atomic transactions executed via env.DB.batch([...])",
+        "wrangler.toml includes [[d1_databases]] binding and database_id"
+      ],
+      "id": "cloudflare-d1"
     },
     {
       "name": "cloudflare-workers",
@@ -2155,6 +2315,63 @@
       "id": "langchain"
     },
     {
+      "name": "langgraph",
+      "version": "1.0.0",
+      "description": "Stateful, multi-actor agent orchestration framework with cycles, persistence, and human-in-the-loop control.",
+      "categories": [
+        "AI",
+        "Workflows",
+        "Developer Tools"
+      ],
+      "languages": [
+        "typescript",
+        "python"
+      ],
+      "author": "Awesome API Skills Team",
+      "license": "MIT",
+      "links": {
+        "API Reference": "https://langchain-ai.github.io/langgraph/"
+      },
+      "relationships": [
+        {
+          "target": "langchain",
+          "type": "depends_on"
+        },
+        {
+          "target": "openai",
+          "type": "integrates_with"
+        },
+        {
+          "target": "anthropic",
+          "type": "integrates_with"
+        }
+      ],
+      "schemaVersion": "1.0.0",
+      "validationStatus": "validated",
+      "maintainer": "Awesome API Skills Team",
+      "lastUpdated": "2026-10-21",
+      "documentationSource": "https://langchain-ai.github.io/langgraph/",
+      "supportedAgents": [
+        "cursor",
+        "claude-code",
+        "cline",
+        "continue"
+      ],
+      "compatibility": "SKILL.md v1.0",
+      "lastVerified": "2026-10-21",
+      "pitfalls": [
+        "Mutating graph state in-place inside node functions instead of returning partial state updates",
+        "Creating cyclic edges without a conditional termination branch to END, causing infinite recursion errors",
+        "Omitting thread_id inside configurable options when invoking a graph compiled with a checkpointer"
+      ],
+      "checklist": [
+        "State schema defined via Annotation.Root (TS) or TypedDict with Annotated reducers (Python)",
+        "Conditional edges explicitly map terminal conditions to END",
+        "Checkpointer (MemorySaver or PostgresSaver) configured with thread_id for multi-turn memory"
+      ],
+      "id": "langgraph"
+    },
+    {
       "name": "lemon-squeezy",
       "version": "1.0.0",
       "description": "Merchant of record for software companies.",
@@ -3486,6 +3703,62 @@
       "id": "playwright"
     },
     {
+      "name": "polar",
+      "version": "1.0.0",
+      "description": "Developer-first merchant of record for SaaS subscriptions, digital products, license keys, and usage billing.",
+      "categories": [
+        "Payments",
+        "Commerce"
+      ],
+      "languages": [
+        "typescript",
+        "python"
+      ],
+      "author": "Awesome API Skills Team",
+      "license": "MIT",
+      "links": {
+        "API Reference": "https://docs.polar.sh"
+      },
+      "relationships": [
+        {
+          "target": "stripe",
+          "type": "alternative_to"
+        },
+        {
+          "target": "lemon-squeezy",
+          "type": "alternative_to"
+        },
+        {
+          "target": "nextjs",
+          "type": "integrates_with"
+        }
+      ],
+      "schemaVersion": "1.0.0",
+      "validationStatus": "validated",
+      "maintainer": "Awesome API Skills Team",
+      "lastUpdated": "2026-10-21",
+      "documentationSource": "https://docs.polar.sh",
+      "supportedAgents": [
+        "cursor",
+        "claude-code",
+        "cline",
+        "continue"
+      ],
+      "compatibility": "SKILL.md v1.0",
+      "lastVerified": "2026-10-21",
+      "pitfalls": [
+        "Using production api.polar.sh base URL with sandbox tokens instead of server: 'sandbox'",
+        "Not validating Standard Webhooks signatures via validateEvent() from @polar-sh/sdk/webhooks",
+        "Exposing POLAR_ACCESS_TOKEN in client browser bundles"
+      ],
+      "checklist": [
+        "Polar SDK initialized with accessToken: process.env.POLAR_ACCESS_TOKEN",
+        "Webhooks verified with validateEvent(rawBody, headers, process.env.POLAR_WEBHOOK_SECRET)",
+        "Sandbox testing explicitly sets server: 'sandbox'"
+      ],
+      "id": "polar"
+    },
+    {
       "name": "postgresql",
       "version": "1.0.0",
       "description": "The world's most advanced open source relational database.",
@@ -4576,6 +4849,58 @@
       "id": "supabase"
     },
     {
+      "name": "supabase-ssr",
+      "version": "1.0.0",
+      "description": "Cookie-based server-side authentication and session management for Supabase in Next.js App Router, SvelteKit, and Remix.",
+      "categories": [
+        "Authentication",
+        "Databases",
+        "Security"
+      ],
+      "languages": [
+        "typescript"
+      ],
+      "author": "Awesome API Skills Team",
+      "license": "MIT",
+      "links": {
+        "API Reference": "https://supabase.com/docs/guides/auth/server-side/nextjs"
+      },
+      "relationships": [
+        {
+          "target": "supabase",
+          "type": "depends_on"
+        },
+        {
+          "target": "nextjs",
+          "type": "integrates_with"
+        }
+      ],
+      "schemaVersion": "1.0.0",
+      "validationStatus": "validated",
+      "maintainer": "Awesome API Skills Team",
+      "lastUpdated": "2026-10-21",
+      "documentationSource": "https://supabase.com/docs/guides/auth/server-side/nextjs",
+      "supportedAgents": [
+        "cursor",
+        "claude-code",
+        "cline",
+        "continue"
+      ],
+      "compatibility": "SKILL.md v1.0",
+      "lastVerified": "2026-10-21",
+      "pitfalls": [
+        "Importing deprecated @supabase/auth-helpers-nextjs instead of @supabase/ssr",
+        "Using supabase.auth.getSession() on server routes to verify identity (spoofable cookie) instead of supabase.auth.getUser()",
+        "Using individual get/set/remove cookie methods instead of getAll and setAll in @supabase/ssr v0.5+"
+      ],
+      "checklist": [
+        "Using @supabase/ssr with createServerClient and createBrowserClient",
+        "Server routes and middleware authenticate via supabase.auth.getUser(), never getSession()",
+        "Cookie adapter implements getAll() and setAll()"
+      ],
+      "id": "supabase-ssr"
+    },
+    {
       "name": "sveltekit",
       "version": "1.0.0",
       "description": "Web development, streamlined.",
@@ -5137,6 +5462,62 @@
       "id": "upstash"
     },
     {
+      "name": "upstash-ratelimit",
+      "version": "1.0.0",
+      "description": "Connectionless HTTP-based rate limiting for Serverless, Cloudflare Workers, and Next.js Edge Middleware.",
+      "categories": [
+        "Security",
+        "Serverless",
+        "Databases"
+      ],
+      "languages": [
+        "typescript"
+      ],
+      "author": "Awesome API Skills Team",
+      "license": "MIT",
+      "links": {
+        "API Reference": "https://upstash.com/docs/redis/sdks/ratelimit-ts/overview"
+      },
+      "relationships": [
+        {
+          "target": "upstash",
+          "type": "depends_on"
+        },
+        {
+          "target": "nextjs",
+          "type": "works_well_with"
+        },
+        {
+          "target": "cloudflare-workers",
+          "type": "works_well_with"
+        }
+      ],
+      "schemaVersion": "1.0.0",
+      "validationStatus": "validated",
+      "maintainer": "Awesome API Skills Team",
+      "lastUpdated": "2026-10-21",
+      "documentationSource": "https://upstash.com/docs/redis/sdks/ratelimit-ts/overview",
+      "supportedAgents": [
+        "cursor",
+        "claude-code",
+        "cline",
+        "continue"
+      ],
+      "compatibility": "SKILL.md v1.0",
+      "lastVerified": "2026-10-21",
+      "pitfalls": [
+        "Instantiating new Ratelimit() inside the request handler on every call (breaks ephemeral in-memory block cache)",
+        "Ignoring the pending promise when analytics: true is enabled in serverless edge functions (pass context.waitUntil(pending))",
+        "Using TCP ioredis client instead of HTTP @upstash/redis client in Edge runtimes"
+      ],
+      "checklist": [
+        "Ratelimit instance initialized outside the request handler for ephemeral cache reuse",
+        "Redis.fromEnv() used with UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN",
+        "Rate limit headers (X-RateLimit-Limit, X-RateLimit-Remaining) attached to 429 responses"
+      ],
+      "id": "upstash-ratelimit"
+    },
+    {
       "name": "vercel",
       "version": "1.0.0",
       "description": "Platform for frontend frameworks and static sites.",
@@ -5167,6 +5548,66 @@
       "compatibility": "SKILL.md v1.0",
       "lastVerified": "2026-07-02",
       "id": "vercel"
+    },
+    {
+      "name": "vercel-ai-sdk",
+      "version": "1.0.0",
+      "description": "TypeScript toolkit for building AI-powered applications with streamText, generateObject, and multi-provider model routing.",
+      "categories": [
+        "AI",
+        "Developer Tools",
+        "Frontend Frameworks"
+      ],
+      "languages": [
+        "typescript"
+      ],
+      "author": "Awesome API Skills Team",
+      "license": "Apache-2.0",
+      "links": {
+        "API Reference": "https://sdk.vercel.ai/docs"
+      },
+      "relationships": [
+        {
+          "target": "openai",
+          "type": "integrates_with"
+        },
+        {
+          "target": "anthropic",
+          "type": "integrates_with"
+        },
+        {
+          "target": "nextjs",
+          "type": "works_well_with"
+        },
+        {
+          "target": "vercel",
+          "type": "deploys_to"
+        }
+      ],
+      "schemaVersion": "1.0.0",
+      "validationStatus": "validated",
+      "maintainer": "Awesome API Skills Team",
+      "lastUpdated": "2026-10-21",
+      "documentationSource": "https://sdk.vercel.ai/docs",
+      "supportedAgents": [
+        "cursor",
+        "claude-code",
+        "cline",
+        "continue"
+      ],
+      "compatibility": "SKILL.md v1.0",
+      "lastVerified": "2026-10-21",
+      "pitfalls": [
+        "Using deprecated OpenAIStream and StreamingTextResponse from AI SDK v2/v3 instead of streamText() and result.toDataStreamResponse() in v4+",
+        "Passing raw JSON strings instead of Zod schemas to generateObject() or tool parameters",
+        "Calling provider SDKs directly in client components instead of server route handlers"
+      ],
+      "checklist": [
+        "Using ai v4+ core primitives (generateText, streamText, generateObject, streamObject)",
+        "Provider packages (@ai-sdk/openai, @ai-sdk/anthropic, @ai-sdk/google) installed separately",
+        "Streaming endpoints return result.toDataStreamResponse() for useChat compatibility"
+      ],
+      "id": "vercel-ai-sdk"
     },
     {
       "name": "vitest",
@@ -5416,6 +5857,61 @@
       "compatibility": "SKILL.md v1.0",
       "lastVerified": "2026-07-03",
       "id": "xquik"
+    },
+    {
+      "name": "zod",
+      "version": "1.0.0",
+      "description": "TypeScript-first schema declaration and validation library with static type inference and LLM structured output support.",
+      "categories": [
+        "Developer Tools",
+        "Security"
+      ],
+      "languages": [
+        "typescript"
+      ],
+      "author": "Awesome API Skills Team",
+      "license": "MIT",
+      "links": {
+        "API Reference": "https://zod.dev"
+      },
+      "relationships": [
+        {
+          "target": "trpc",
+          "type": "works_well_with"
+        },
+        {
+          "target": "vercel-ai-sdk",
+          "type": "integrates_with"
+        },
+        {
+          "target": "openai",
+          "type": "works_well_with"
+        }
+      ],
+      "schemaVersion": "1.0.0",
+      "validationStatus": "validated",
+      "maintainer": "Awesome API Skills Team",
+      "lastUpdated": "2026-10-21",
+      "documentationSource": "https://zod.dev",
+      "supportedAgents": [
+        "cursor",
+        "claude-code",
+        "cline",
+        "continue"
+      ],
+      "compatibility": "SKILL.md v1.0",
+      "lastVerified": "2026-10-21",
+      "pitfalls": [
+        "Using z.string().optional() with OpenAI Structured Outputs (strict mode requires .nullable() instead of .optional())",
+        "Calling schema.parse() on untrusted HTTP request bodies without try/catch instead of schema.safeParse()",
+        "Forgetting z.coerce.number() when validating URL query parameters or formData strings"
+      ],
+      "checklist": [
+        "Untrusted inputs validated via schema.safeParse(data)",
+        "Static TypeScript types derived via z.infer<typeof Schema>",
+        "Query/URL string parameters coerced using z.coerce.number() or z.coerce.boolean()"
+      ],
+      "id": "zod"
     }
   ]
 }

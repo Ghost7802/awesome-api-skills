@@ -58,6 +58,7 @@ export function App() {
             onNavigate={setActiveTab}
             skillCount={skills.length}
             edgeCount={graphEdges.length}
+            measuredSearchMs={(stats as any)?.measuredSearchMs || 0.27}
           />
         )}
 

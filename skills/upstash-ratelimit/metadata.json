@@ -1,0 +1,55 @@
+{
+  "name": "upstash-ratelimit",
+  "version": "1.0.0",
+  "description": "Connectionless HTTP-based rate limiting for Serverless, Cloudflare Workers, and Next.js Edge Middleware.",
+  "categories": [
+    "Security",
+    "Serverless",
+    "Databases"
+  ],
+  "languages": [
+    "typescript"
+  ],
+  "author": "Awesome API Skills Team",
+  "license": "MIT",
+  "links": {
+    "API Reference": "https://upstash.com/docs/redis/sdks/ratelimit-ts/overview"
+  },
+  "relationships": [
+    {
+      "target": "upstash",
+      "type": "depends_on"
+    },
+    {
+      "target": "nextjs",
+      "type": "works_well_with"
+    },
+    {
+      "target": "cloudflare-workers",
+      "type": "works_well_with"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "validationStatus": "validated",
+  "maintainer": "Awesome API Skills Team",
+  "lastUpdated": "2026-10-21",
+  "documentationSource": "https://upstash.com/docs/redis/sdks/ratelimit-ts/overview",
+  "supportedAgents": [
+    "cursor",
+    "claude-code",
+    "cline",
+    "continue"
+  ],
+  "compatibility": "SKILL.md v1.0",
+  "lastVerified": "2026-10-21",
+  "pitfalls": [
+    "Instantiating new Ratelimit() inside the request handler on every call (breaks ephemeral in-memory block cache)",
+    "Ignoring the pending promise when analytics: true is enabled in serverless edge functions (pass context.waitUntil(pending))",
+    "Using TCP ioredis client instead of HTTP @upstash/redis client in Edge runtimes"
+  ],
+  "checklist": [
+    "Ratelimit instance initialized outside the request handler for ephemeral cache reuse",
+    "Redis.fromEnv() used with UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN",
+    "Rate limit headers (X-RateLimit-Limit, X-RateLimit-Remaining) attached to 429 responses"
+  ]
+}

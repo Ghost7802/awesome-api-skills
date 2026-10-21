@@ -1,0 +1,50 @@
+{
+  "name": "better-sqlite3",
+  "version": "1.0.0",
+  "description": "Fastest and simplest synchronous SQLite3 library for Node.js with WAL concurrency and atomic transaction wrappers.",
+  "categories": [
+    "Databases"
+  ],
+  "languages": [
+    "typescript",
+    "sql"
+  ],
+  "author": "Awesome API Skills Team",
+  "license": "MIT",
+  "links": {
+    "API Reference": "https://github.com/WiseLibs/better-sqlite3/blob/master/docs/api.md"
+  },
+  "relationships": [
+    {
+      "target": "sqlite",
+      "type": "implements"
+    },
+    {
+      "target": "drizzle",
+      "type": "works_well_with"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "validationStatus": "validated",
+  "maintainer": "Awesome API Skills Team",
+  "lastUpdated": "2026-10-21",
+  "documentationSource": "https://github.com/WiseLibs/better-sqlite3/blob/master/docs/api.md",
+  "supportedAgents": [
+    "cursor",
+    "claude-code",
+    "cline",
+    "continue"
+  ],
+  "compatibility": "SKILL.md v1.0",
+  "lastVerified": "2026-10-21",
+  "pitfalls": [
+    "Awaiting db.prepare().get() or treating better-sqlite3 methods as Promises (all operations are strictly synchronous)",
+    "Forgetting db.pragma('journal_mode = WAL') after opening the database, resulting in SQLITE_BUSY lock contention under concurrent reads",
+    "Running async functions inside db.transaction() callbacks (transactions throw if callback returns a Promise)"
+  ],
+  "checklist": [
+    "db.pragma('journal_mode = WAL') and db.pragma('foreign_keys = ON') executed on connection initialization",
+    "Prepared statements cached or reused via db.prepare()",
+    "Batch writes wrapped inside synchronous db.transaction((items) => { ... })"
+  ]
+}

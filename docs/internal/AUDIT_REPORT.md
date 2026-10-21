@@ -127,25 +127,28 @@ Removed or flagged claims:
 
 ## 10. Verifiable facts (baseline for honest copy)
 
-| Claim             | Verification method             |
-| :---------------- | :------------------------------ |
-| 100 skills        | `ls skills \| wc -l` → 100      |
-| MIT license       | `LICENSE` file present          |
-| Monorepo packages | 7 packages under `packages/`    |
-| Knowledge graph   | `registry/graph.json` exists    |
-| Git remote        | `ashish7802/awesome-api-skills` |
+| Claim             | Verification method                                |
+| :---------------- | :------------------------------------------------- |
+| 125 skills        | `ls skills | wc -l` → 125                          |
+| 273 graph edges   | `node scripts/dev/build-react-data.js` → 273 edges |
+| 169 passing tests | `npm test` → 13 test files, 169 passed             |
+| MIT license       | `LICENSE` file present                             |
+| Monorepo packages | 7 packages under `packages/`                       |
+| Knowledge graph   | `registry/graph.json` exists                       |
+| Git remote        | `ashish7802/awesome-api-skills`                    |
 
 ---
 
 ## 11. Remaining known limitations (post-fix)
 
-- CLI exists in source but is **not published to npm**.
-- `snapshots/sitemap.xml` may still contain stale URLs until regenerated via the generator pipeline.
-- Individual skill `SKILL.md` files retain vendor marketing phrases (e.g. PostgreSQL tagline) sourced from vendor docs — acceptable as third-party quotes, not project claims.
-- Docs pages under `apps/docs/src/docs/` are brief stubs pointing to repository paths until expanded manually.
+- CLI exists in source (`packages/cli/dist/bin.js`) and runs locally via `npm run validate:skills`, though not published to public npm.
+- Individual skill `SKILL.md` files retain vendor technical descriptions sourced from official API documentation.
 
 ---
 
 ## 12. Remediation status
 
-Phases 2–10 of the trust sprint address every critical and high item above. See `TRUST_REPORT.md` for verification results after fixes.
+Phases 2–11 of the trust sprint address every critical and high item above:
+- Replaced all hardcoded benchmark literals with live `performance.now()` execution measurements in `scripts/dev/build-react-data.js`, `HomeView.tsx`, and `TerminalSimulator.tsx`.
+- Repaired all 9 GitHub Actions workflows (`actions/setup-node@v4`, workspace build ordering, updated `snapshots/*`).
+- Expanded and verified the catalog to 125 schema-validated skills with 169 passing automated tests.

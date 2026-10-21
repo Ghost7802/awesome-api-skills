@@ -8,8 +8,8 @@
 
 <p>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/skills-120%20verified-38bdf8?style=flat-square" alt="120 verified skills">
-  <img src="https://img.shields.io/badge/graph-260%20edges-818cf8?style=flat-square" alt="260 graph edges">
+  <img src="https://img.shields.io/badge/skills-125%20verified-38bdf8?style=flat-square" alt="125 verified skills">
+  <img src="https://img.shields.io/badge/graph-273%20edges-818cf8?style=flat-square" alt="273 graph edges">
   <img src="https://img.shields.io/badge/runtime-React%20%2B%20Vite-10b981?style=flat-square" alt="React + Vite">
 </p>
 
@@ -29,12 +29,12 @@
 
 When AI coding agents (**Claude Code**, **Cursor**, **Cline**, **Continue**, **Windsurf**, or **OpenAI Codex**) generate code for modern APIs, they frequently introduce critical defects caused by stale training data:
 
-* ❌ **Broken Webhook Verification**: Parsing raw request bodies with `express.json()` before verifying cryptographic signatures (e.g. Stripe, Svix, Paddle), causing `SignatureVerificationError`.
+* ❌ **Broken Webhook Verification**: Parsing raw request bodies with `express.json()` before verifying cryptographic signatures (e.g. Stripe, Svix, Paddle, Polar), causing `SignatureVerificationError`.
 * ❌ **Deprecated SDK Methods**: Generating legacy SDK constructors or middleware (e.g. Clerk v4 `authMiddleware` instead of v5 `clerkMiddleware`, outdated Vercel AI SDK v2 `OpenAIStream` instead of v4 `streamText`).
 * ❌ **Unbatched HTTP Loops**: Executing unbatched loops against transactional APIs (Resend, SendGrid, Twilio), resulting in `HTTP 429 Too Many Requests`.
 * ❌ **Missing Connection Pooling**: Spawning unpooled database connections inside Serverless functions (Neon, Supabase, PostgreSQL), exhausting connection limits.
 
-`awesome-api-skills` resolves this by providing **120 curated, schema-validated `SKILL.md` context files**. Dropping a skill into your workspace (`.claude/skills/`, `.cursor/skills/`, `.agents/skills/`) provides deterministic parameters, anti-hallucination checklists, and battle-tested code patterns before a single line of code is generated.
+`awesome-api-skills` resolves this by providing **125 curated, schema-validated `SKILL.md` context files**. Dropping a skill into your workspace (`.claude/skills/`, `.cursor/skills/`, `.agents/skills/`) provides deterministic parameters, anti-hallucination checklists, and battle-tested code patterns before a single line of code is generated.
 
 ---
 
@@ -79,46 +79,46 @@ Then prompt your assistant:
 
 ---
 
-### 2. Using the CLI & NPM Package
+### 2. Using the CLI & Workspace Validator
 
-You can search, validate, and inspect skills directly using the CLI:
+You can search, validate, and inspect skills directly using the repository CLI:
 
 ```bash
 # Search for skills matching keywords
-npx @awesome-api-skills/cli search "embeddings vector rag"
+node packages/cli/dist/bin.js search "embeddings vector rag"
 
 # Validate all skills in your workspace
-npx @awesome-api-skills/cli validate
+npm run validate:skills
 
 # Diagnose repository & schema integrity
-npx @awesome-api-skills/cli doctor
+node packages/cli/dist/bin.js doctor
 ```
 
 ---
 
-## 📚 Skill Catalog (116 Verified Skills)
+## 📚 Skill Catalog (125 Verified Skills)
 
-Our catalog covers **116 verified skills** across 15 core technical domains:
+Our catalog covers **125 verified skills** across 15 core technical domains:
 
 | Category | Skills Included |
 | :--- | :--- |
-| **AI, LLM & Reasoning** | `deepseek`, `openai`, `anthropic`, `gemini`, `groq`, `mistral`, `cohere`, `elevenlabs`, `replicate`, `ollama`, `vllm`, `langchain`, `llamaindex` |
+| **AI, LLM & Reasoning** | `deepseek`, `openai`, `anthropic`, `gemini`, `groq`, `mistral`, `cohere`, `elevenlabs`, `replicate`, `ollama`, `vllm`, `langchain`, `llamaindex`, `vercel-ai-sdk`, `langgraph`, `anthropic-mcp`, `azure-openai` |
 | **Vector DB & Search** | `qdrant`, `weaviate`, `pinecone`, `meilisearch`, `typesense`, `algolia`, `xquik` |
-| **Payments & Billing** | `stripe`, `paddle`, `lemon-squeezy`, `braintree`, `revenuecat`, `plaid` |
+| **Payments & Billing** | `stripe`, `paddle`, `lemon-squeezy`, `braintree`, `revenuecat`, `plaid`, `polar` |
 | **Workflows & Background** | `inngest`, `trigger-dev`, `bullmq`, `kafka`, `rabbitmq`, `nats`, `redis-streams` |
-| **Auth & Security** | `svix`, `unkey`, `clerk`, `auth0`, `okta`, `better-auth`, `jwt`, `oauth2`, `openid-connect` |
-| **Databases & ORMs** | `postgresql`, `mysql`, `sqlite`, `mongodb-atlas`, `planetscale`, `neon`, `turso`, `drizzle`, `prisma` |
-| **Caching & KV** | `redis`, `upstash` |
+| **Auth & Security** | `svix`, `unkey`, `clerk`, `auth0`, `okta`, `better-auth`, `supabase-ssr`, `jwt`, `oauth2`, `openid-connect` |
+| **Databases & ORMs** | `postgresql`, `mysql`, `sqlite`, `better-sqlite3`, `cloudflare-d1`, `mongodb-atlas`, `planetscale`, `neon`, `turso`, `supabase`, `firebase`, `drizzle`, `prisma` |
+| **Caching & Rate Limiting** | `redis`, `upstash`, `upstash-ratelimit` |
 | **Cloud & Object Storage** | `aws-s3`, `aws-dynamodb`, `azure-blob-storage`, `google-cloud-storage` |
 | **Communications & Email** | `resend`, `postmark`, `sendgrid`, `twilio`, `novu`, `slack`, `discord` |
-| **Backend Frameworks** | `express`, `fastapi`, `nestjs`, `hono`, `trpc` |
+| **Backend & Validation** | `express`, `fastapi`, `nestjs`, `hono`, `trpc`, `zod` |
 | **Frontend Frameworks** | `react`, `vue`, `nextjs`, `nuxt`, `sveltekit` |
 | **Deployment & Edge** | `vercel`, `railway`, `render`, `fly`, `digitalocean`, `cloudflare`, `cloudflare-workers`, `deno-deploy` |
-| **Infrastructure & DevOps** | `docker`, `kubernetes`, `helm`, `terraform`, `pulumi`, `argo-cd`, `github-actions`, `traefik`, `nginx`, `caddy`, `turborepo` |
+| **Infrastructure & DevOps** | `docker`, `kubernetes`, `helm`, `terraform`, `pulumi`, `argo-cd`, `github-actions`, `traefik`, `nginx`, `caddy`, `turborepo`, `linux` |
 | **Observability & Analytics**| `datadog`, `sentry`, `prometheus`, `grafana`, `loki`, `jaeger`, `opentelemetry`, `mixpanel`, `posthog` |
 | **Dev Tools & Platforms** | `eslint`, `prettier`, `biome`, `vitest`, `playwright`, `git`, `github`, `shopify`, `mapbox`, `convex` |
 
-> 🌐 **Browse the searchable interactive directory at [docs/index.html](./docs/index.html).**
+> 🌐 **Browse the searchable interactive application via `npm run dev` or the deployed Vercel app.**
 
 ---
 
@@ -127,21 +127,21 @@ Our catalog covers **116 verified skills** across 15 core technical domains:
 `awesome-api-skills` is organized as a high-performance TypeScript workspace:
 
 ```
-├── skills/                     # 116 SKILL.md specs & metadata.json contracts
+├── skills/                     # 125 SKILL.md specs, metadata.json contracts & runnable examples
+├── src/                        # Interactive React + Vite + Tailwind CSS application
+├── api/                        # Vercel Serverless Functions (/api/skills, /api/search, /api/validate)
 ├── packages/
-│   ├── cli/                    # Production CLI binary (search, validate, doctor)
+│   ├── cli/                    # Production CLI binary (search, validate, doctor, benchmark)
 │   ├── core/                   # Orchestration runtime and workspace validation
 │   ├── validator/              # JSON Schema & Zod structural validation engine
-│   ├── registry/               # Knowledge graph index (248 edges) & search resolver
+│   ├── registry/               # Knowledge graph index (273 edges) & search resolver
 │   ├── generator/              # Template engine & SKILL.md compiler
 │   ├── sdk/                    # Programmatic Node.js SDK
 │   └── shared-types/           # Shared TypeScript interfaces & types
-├── apps/
-│   └── docs/                   # Dark-mode VitePress documentation & Skill Studio
 ├── scripts/
-│   ├── dev/                    # Benchmark suite & verification scripts
+│   ├── dev/                    # Dogfooding, benchmark suite & data compiler
 │   └── generators/             # Graph and metadata update utilities
-└── vercel.json                 # Zero-configuration Vercel deployment spec
+└── vercel.json                 # Zero-configuration Vercel fullstack deployment spec
 ```
 
 ---
@@ -150,10 +150,10 @@ Our catalog covers **116 verified skills** across 15 core technical domains:
 
 Every skill in this repository is strictly governed by automated verification pipelines:
 
-1. **Deterministic Schema Enforcement**: 100% of skills validate against the `SKILL.md v1.0` schema specification via `packages/validator`.
-2. **Automated Unit Tests**: 38 comprehensive tests run across all packages in CI with Vitest.
-3. **Verified Knowledge Graph**: 248 validated relationship edges map out prerequisites, alternatives, and full-stack integration recipes.
-4. **Sub-16ms Performance**: In-memory search indexing and relationship traversals execute in under 16ms.
+1. **Deterministic Schema Enforcement**: 100% of skills (125/125) validate against the `SKILL.md v1.0` schema specification via `packages/validator`.
+2. **Automated Unit & Catalog Tests**: 169 comprehensive tests across 13 test suites run in CI with Vitest.
+3. **Verified Knowledge Graph**: 273 validated relationship edges map out prerequisites, alternatives, and full-stack integration recipes.
+4. **Measured Performance**: Live `performance.now()` telemetry measures workspace parse (~43.6ms) and inverted-index search (<1ms).
 
 ---
 
@@ -165,7 +165,7 @@ We welcome contributions of new API skills and improvements to existing document
    ```bash
    git clone https://github.com/ashish7802/awesome-api-skills.git
    cd awesome-api-skills
-   npm ci
+   npm install
    npm run build:packages
    ```
 2. **Create your skill** under `skills/<skill-name>/` containing `SKILL.md` and `metadata.json`.

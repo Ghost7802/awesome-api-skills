@@ -12,29 +12,15 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@v4
         with:
           node-version: 22.x
-          cache: 'npm'
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Build All
-        run: npm run build
+        run: npm run build:packages && npm run build
 
       - name: Generate Integrity Report & Checksums
         run: npm run generate-integrity
-
-      - name: Generate SBOM
-        run: npm sbom --sbom-format=spdx > sbom.spdx.json
-
-      - name: Upload Artifacts to Release
-        uses: softprops/action-gh-release@v3
-        with:
-          files: |
-            dist/artifacts/registry.json
-            dist/artifacts/search-index.json
-            dist/artifacts/integrity-report.json
-            checksums.txt
-            sbom.spdx.json

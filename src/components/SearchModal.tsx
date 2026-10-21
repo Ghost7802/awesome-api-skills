@@ -56,7 +56,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Quick search 120 verified API skills..."
+            placeholder={`Quick search ${skills.length} verified API skills...`}
             className="flex-1 bg-transparent text-sm text-white placeholder-slate-500 outline-none"
           />
           <button

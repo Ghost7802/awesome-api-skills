@@ -4,15 +4,14 @@
   "private": true,
   "description": "A collection of structured API skills for AI coding agents.",
   "workspaces": [
-    "packages/*",
-    "apps/*"
+    "packages/*"
   ],
   "scripts": {
     "cli": "node packages/cli/dist/bin.js",
     "build": "vite build",
     "dev": "vite --host 0.0.0.0 --port 3000",
-    "lint": "tsc --noEmit",
-    "typecheck": "tsc --noEmit",
+    "lint": "tsc -p tsconfig.app.json --noEmit",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit",
     "format": "prettier --write .",
     "test": "vitest run",
     "validate:skills": "node packages/cli/dist/bin.js validate",

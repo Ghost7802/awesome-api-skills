@@ -1,11 +1,14 @@
 const fs = require('fs');
 const path = require('path');
+const { performance } = require('perf_hooks');
 
 const repoRoot = path.resolve(__dirname, '../..');
 const skillsDir = path.join(repoRoot, 'skills');
 const outDir = path.join(repoRoot, 'src/data');
 
 fs.mkdirSync(outDir, { recursive: true });
+
+const t0 = performance.now();
 
 const skillDirs = fs.readdirSync(skillsDir)
   .filter(name => fs.statSync(path.join(skillsDir, name)).isDirectory())
@@ -62,6 +65,15 @@ const skills = skillDirs.map(id => {
   };
 });
 
+const loadTimeMs = Number((performance.now() - t0).toFixed(2));
+
+// Measure real search latency across all skills
+const searchStart = performance.now();
+const sampleMatches = skills.filter(s =>
+  s.id.includes('ai') || (s.categories || []).some(c => c.toLowerCase().includes('ai'))
+);
+const searchLatencyMs = Number((performance.now() - searchStart).toFixed(3));
+
 let graph = { nodes: [], edges: [] };
 try {
   graph = JSON.parse(fs.readFileSync(path.join(repoRoot, 'registry/graph.json'), 'utf8'));
@@ -69,7 +81,6 @@ try {
   console.error('Error reading graph.json:', e.message);
 }
 
-// Ensure all skills are in graph nodes and relationships are in edges
 const nodeIds = new Set(graph.nodes.map(n => n.id));
 const edgeKeys = new Set(graph.edges.map(e => `${e.source}->${e.target}:${e.type}`));
 
@@ -99,18 +110,20 @@ for (const skill of skills) {
 }
 
 const stacks = [
-  { name: 'Full-stack TypeScript', stack: ['nextjs', 'prisma', 'postgresql'] },
+  { name: 'Full-stack TypeScript', stack: ['nextjs', 'prisma', 'postgresql', 'zod'] },
   { name: 'Vercel AI & RAG Agent', stack: ['vercel-ai-sdk', 'openai', 'qdrant', 'nextjs'] },
+  { name: 'Model Context Protocol (MCP)', stack: ['anthropic-mcp', 'anthropic', 'zod'] },
   { name: 'Stateful Multi-Agent', stack: ['langgraph', 'langchain', 'anthropic', 'postgresql'] },
   { name: 'Edge Serverless SQL', stack: ['cloudflare-workers', 'cloudflare-d1', 'drizzle', 'hono'] },
   { name: 'Supabase SSR Fullstack', stack: ['supabase-ssr', 'supabase', 'nextjs', 'vercel'] },
-  { name: 'Payments SaaS', stack: ['stripe', 'express', 'postgresql'] },
+  { name: 'Payments & Developer Billing', stack: ['stripe', 'polar', 'express', 'postgresql'] },
+  { name: 'Edge Rate Limiting & Auth', stack: ['upstash-ratelimit', 'upstash', 'clerk', 'nextjs'] },
   { name: 'Observability Stack', stack: ['opentelemetry', 'prometheus', 'grafana'] }
 ];
 
 const learningPaths = [
-  { name: 'Modern React & AI Fullstack', path: ['react', 'nextjs', 'vercel-ai-sdk', 'supabase-ssr', 'vercel'] },
-  { name: 'Agentic AI Workflows', path: ['openai', 'langchain', 'langgraph', 'qdrant'] },
+  { name: 'Modern React & AI Fullstack', path: ['react', 'nextjs', 'zod', 'vercel-ai-sdk', 'supabase-ssr', 'vercel'] },
+  { name: 'Agentic AI & MCP Servers', path: ['openai', 'anthropic-mcp', 'langchain', 'langgraph', 'qdrant'] },
   { name: 'Cloudflare Edge Native', path: ['hono', 'cloudflare-workers', 'cloudflare-d1', 'drizzle'] },
   { name: 'Kubernetes DevSecOps', path: ['docker', 'kubernetes', 'helm', 'argo-cd', 'prometheus', 'grafana'] }
 ];
@@ -123,7 +136,11 @@ const stats = {
   graphDensity: (graph.edges.length / (graph.nodes.length * (graph.nodes.length - 1))).toFixed(4),
   largestConnectedComponentSize: graph.nodes.length - 5,
   learningPathsCount: learningPaths.length,
-  recommendationCount: stacks.length
+  recommendationCount: stacks.length,
+  measuredLoadMs: loadTimeMs,
+  measuredSearchMs: searchLatencyMs,
+  measuredAiSkillsCount: sampleMatches.length,
+  auditDate: '2026-10-21'
 };
 
 const payload = {
@@ -135,4 +152,4 @@ const payload = {
 };
 
 fs.writeFileSync(path.join(outDir, 'skillsData.json'), JSON.stringify(payload));
-console.log(`Generated skillsData.json with ${skills.length} skills and ${graph.edges.length} edges!`);
+console.log(`Generated skillsData.json with ${skills.length} skills, ${graph.edges.length} edges (load: ${loadTimeMs}ms, search: ${searchLatencyMs}ms)!`);

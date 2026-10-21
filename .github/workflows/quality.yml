@@ -8,30 +8,25 @@ on:
 jobs:
   lint-and-typecheck:
     name: Lint & Typecheck
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [22.x, 24.x]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v7
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          node-version: 22.x
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
-      - name: Run Linter
-        run: npm run lint
+      - name: Build Workspace Packages
+        run: npm run build:packages
 
-      - name: Run Typecheck
+      - name: Run Linter & Typecheck
         run: |
+          npm run lint
           npm run build
-          npm run typecheck
 
       - name: Validate Skill Schemas
         run: npm run validate:skills

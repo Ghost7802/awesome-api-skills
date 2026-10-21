@@ -1,0 +1,51 @@
+{
+  "name": "anthropic-mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) SDK for exposing deterministic tools, resources, and prompts to AI coding agents.",
+  "categories": [
+    "AI",
+    "Developer Tools"
+  ],
+  "languages": [
+    "typescript",
+    "python"
+  ],
+  "author": "Awesome API Skills Team",
+  "license": "MIT",
+  "links": {
+    "API Reference": "https://modelcontextprotocol.io/docs"
+  },
+  "relationships": [
+    {
+      "target": "anthropic",
+      "type": "integrates_with"
+    },
+    {
+      "target": "zod",
+      "type": "depends_on"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "validationStatus": "validated",
+  "maintainer": "Awesome API Skills Team",
+  "lastUpdated": "2026-10-21",
+  "documentationSource": "https://modelcontextprotocol.io/docs",
+  "supportedAgents": [
+    "cursor",
+    "claude-code",
+    "cline",
+    "continue"
+  ],
+  "compatibility": "SKILL.md v1.0",
+  "lastVerified": "2026-10-21",
+  "pitfalls": [
+    "Writing console.log() debug output to stdout in stdio MCP servers (corrupts JSON-RPC 2.0 wire frames; always log to console.error / stderr)",
+    "Omitting isError: true on failed tool call responses instead of returning structured tool error content",
+    "Using outdated Server class boilerplate instead of high-level McpServer from @modelcontextprotocol/sdk/server/mcp.js"
+  ],
+  "checklist": [
+    "All diagnostic logging uses console.error() so stdout remains pure JSON-RPC",
+    "Tools registered via server.tool(name, zodSchemaShape, handler)",
+    "StdioServerTransport connected via await server.connect(transport)"
+  ]
+}

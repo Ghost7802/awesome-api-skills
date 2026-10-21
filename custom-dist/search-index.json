@@ -14,6 +14,14 @@
     ]
   },
   {
+    "id": "anthropic-mcp",
+    "name": "anthropic-mcp",
+    "categories": [
+      "AI",
+      "Developer Tools"
+    ]
+  },
+  {
     "id": "argo-cd",
     "name": "argo-cd",
     "categories": [
@@ -69,6 +77,13 @@
     ]
   },
   {
+    "id": "better-sqlite3",
+    "name": "better-sqlite3",
+    "categories": [
+      "Databases"
+    ]
+  },
+  {
     "id": "biome",
     "name": "biome",
     "categories": [
@@ -113,6 +128,15 @@
     "categories": [
       "Cloud",
       "Security"
+    ]
+  },
+  {
+    "id": "cloudflare-d1",
+    "name": "cloudflare-d1",
+    "categories": [
+      "Databases",
+      "Cloud",
+      "Serverless"
     ]
   },
   {
@@ -358,6 +382,15 @@
     ]
   },
   {
+    "id": "langgraph",
+    "name": "langgraph",
+    "categories": [
+      "AI",
+      "Workflows",
+      "Developer Tools"
+    ]
+  },
+  {
     "id": "lemon-squeezy",
     "name": "lemon-squeezy",
     "categories": [
@@ -575,6 +608,14 @@
     ]
   },
   {
+    "id": "polar",
+    "name": "polar",
+    "categories": [
+      "Payments",
+      "Commerce"
+    ]
+  },
+  {
     "id": "postgresql",
     "name": "postgresql",
     "categories": [
@@ -758,6 +799,15 @@
     ]
   },
   {
+    "id": "supabase-ssr",
+    "name": "supabase-ssr",
+    "categories": [
+      "Authentication",
+      "Databases",
+      "Security"
+    ]
+  },
+  {
     "id": "sveltekit",
     "name": "sveltekit",
     "categories": [
@@ -854,11 +904,29 @@
     ]
   },
   {
+    "id": "upstash-ratelimit",
+    "name": "upstash-ratelimit",
+    "categories": [
+      "Security",
+      "Serverless",
+      "Databases"
+    ]
+  },
+  {
     "id": "vercel",
     "name": "vercel",
     "categories": [
       "Cloud",
       "DevOps"
+    ]
+  },
+  {
+    "id": "vercel-ai-sdk",
+    "name": "vercel-ai-sdk",
+    "categories": [
+      "AI",
+      "Developer Tools",
+      "Frontend Frameworks"
     ]
   },
   {
@@ -899,6 +967,14 @@
     "categories": [
       "Developer Tools",
       "AI"
+    ]
+  },
+  {
+    "id": "zod",
+    "name": "zod",
+    "categories": [
+      "Developer Tools",
+      "Security"
     ]
   }
 ]

@@ -1,0 +1,55 @@
+{
+  "name": "polar",
+  "version": "1.0.0",
+  "description": "Developer-first merchant of record for SaaS subscriptions, digital products, license keys, and usage billing.",
+  "categories": [
+    "Payments",
+    "Commerce"
+  ],
+  "languages": [
+    "typescript",
+    "python"
+  ],
+  "author": "Awesome API Skills Team",
+  "license": "MIT",
+  "links": {
+    "API Reference": "https://docs.polar.sh"
+  },
+  "relationships": [
+    {
+      "target": "stripe",
+      "type": "alternative_to"
+    },
+    {
+      "target": "lemon-squeezy",
+      "type": "alternative_to"
+    },
+    {
+      "target": "nextjs",
+      "type": "integrates_with"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "validationStatus": "validated",
+  "maintainer": "Awesome API Skills Team",
+  "lastUpdated": "2026-10-21",
+  "documentationSource": "https://docs.polar.sh",
+  "supportedAgents": [
+    "cursor",
+    "claude-code",
+    "cline",
+    "continue"
+  ],
+  "compatibility": "SKILL.md v1.0",
+  "lastVerified": "2026-10-21",
+  "pitfalls": [
+    "Using production api.polar.sh base URL with sandbox tokens instead of server: 'sandbox'",
+    "Not validating Standard Webhooks signatures via validateEvent() from @polar-sh/sdk/webhooks",
+    "Exposing POLAR_ACCESS_TOKEN in client browser bundles"
+  ],
+  "checklist": [
+    "Polar SDK initialized with accessToken: process.env.POLAR_ACCESS_TOKEN",
+    "Webhooks verified with validateEvent(rawBody, headers, process.env.POLAR_WEBHOOK_SECRET)",
+    "Sandbox testing explicitly sets server: 'sandbox'"
+  ]
+}
