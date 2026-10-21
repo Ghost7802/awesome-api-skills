@@ -10,7 +10,7 @@ const packageJson = {
   private: true,
   scripts: {
     dev: 'vitepress dev src',
-    build: 'vitepress build src',
+    build: 'vitepress build src --outDir ../dist',
     serve: 'vitepress serve src',
     analyze: 'vite-bundle-visualizer',
   },
