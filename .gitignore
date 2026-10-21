@@ -1,7 +1,8 @@
 node_modules/
 dist/
 apps/docs/dist/
-apps/docs/src/
+apps/docs/src/.vitepress/dist/
+apps/docs/src/.vitepress/cache/
 coverage/
 .DS_Store
 *.log

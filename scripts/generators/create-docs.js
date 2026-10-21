@@ -10,7 +10,7 @@ const packageJson = {
   private: true,
   scripts: {
     dev: 'vitepress dev src',
-    build: 'vitepress build src --outDir ../dist',
+    build: 'vitepress build src --outDir dist',
     serve: 'vitepress serve src',
     analyze: 'vite-bundle-visualizer',
   },
@@ -34,6 +34,11 @@ fs.writeFileSync(path.join(docsDir, 'package.json'), JSON.stringify(packageJson,
 fs.mkdirSync(path.join(docsDir, 'src'), { recursive: true });
 fs.mkdirSync(path.join(docsDir, 'src', '.vitepress'), { recursive: true });
 fs.mkdirSync(path.join(docsDir, 'src', '.vitepress', 'theme'), { recursive: true });
+
+fs.writeFileSync(
+  path.join(docsDir, 'src', '.vitepress', 'config.mjs'),
+  `export default {\n  title: 'Awesome API Skills',\n  outDir: '../dist',\n  vite: { build: { chunkSizeWarningLimit: 2000 } }\n};\n`,
+);
 
 fs.writeFileSync(
   path.join(docsDir, 'src', 'index.md'),
