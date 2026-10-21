@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "cli": "node packages/cli/dist/bin.js",
-    "build": "node scripts/dev/build-react-data.js && vite build && node -e \"const fs=require('fs');fs.cpSync('dist','apps/docs/dist',{recursive:true});fs.cpSync('dist','apps/docs/src/.vitepress/dist',{recursive:true});\"",
+    "build": "node scripts/dev/build-react-data.js && vite build && node -e \"const fs=require('fs');['apps/docs/dist','apps/docs/src/.vitepress/dist','apps/docs/docs/.vitepress/dist','docs/.vitepress/dist','src/.vitepress/dist'].forEach(d=>fs.cpSync('dist',d,{recursive:true}));\"",
     "dev": "vite --host 0.0.0.0 --port 3000",
     "lint": "tsc -p tsconfig.app.json --noEmit",
     "typecheck": "tsc -p tsconfig.app.json --noEmit",

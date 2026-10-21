@@ -1,6 +1,9 @@
 node_modules/
 dist/
+docs/.vitepress/
+src/.vitepress/
 apps/docs/dist/
+apps/docs/docs/
 apps/docs/src/.vitepress/dist/
 apps/docs/src/.vitepress/cache/
 coverage/

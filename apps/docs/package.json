@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npm --prefix ../.. run dev",
-    "build": "node -e \"const fs=require('fs'),cp=require('child_process'),path=require('path');const root=path.resolve(process.cwd(),'../..');if(!fs.existsSync(path.join(root,'node_modules/vite/bin/vite.js'))){cp.execSync('npm install --no-audit --no-fund',{cwd:root,stdio:'inherit'});}cp.execSync('node scripts/dev/build-react-data.js',{cwd:root,stdio:'inherit'});cp.execSync('node node_modules/vite/bin/vite.js build --outDir apps/docs/dist --emptyOutDir',{cwd:root,stdio:'inherit'});fs.cpSync(path.join(root,'apps/docs/dist'),path.join(root,'dist'),{recursive:true});fs.cpSync(path.join(root,'apps/docs/dist'),path.join(root,'apps/docs/src/.vitepress/dist'),{recursive:true});\"",
+    "build": "node -e \"const fs=require('fs'),cp=require('child_process'),path=require('path');const root=path.resolve(process.cwd(),'../..');if(!fs.existsSync(path.join(root,'node_modules/vite/bin/vite.js'))){cp.execSync('npm install --no-audit --no-fund',{cwd:root,stdio:'inherit'});}cp.execSync('node scripts/dev/build-react-data.js',{cwd:root,stdio:'inherit'});cp.execSync('node node_modules/vite/bin/vite.js build --outDir apps/docs/dist --emptyOutDir',{cwd:root,stdio:'inherit'});['dist','apps/docs/src/.vitepress/dist','apps/docs/docs/.vitepress/dist'].forEach(d=>fs.cpSync(path.join(root,'apps/docs/dist'),path.join(root,d),{recursive:true}));\"",
     "serve": "npm --prefix ../.. run dev"
   }
 }
