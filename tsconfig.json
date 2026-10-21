@@ -17,8 +17,6 @@
     "skills",
     "scripts",
     "snapshots",
-    "src",
-    "packages",
     "vite.config.ts",
     "vitest.config.ts"
   ]

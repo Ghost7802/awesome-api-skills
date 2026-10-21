@@ -256,7 +256,7 @@ export class SitemapPlugin implements GeneratorPlugin {
     }
 
     fs.mkdirSync(context.outputDir, { recursive: true });
-    const repoBase = 'https://github.com/ashish7802/awesome-api-skills/tree/master/skills';
+    const repoBase = 'https://github.com/Ghost7802/awesome-api-skills/tree/master/skills';
     const urls = context.skills
       .map((s) => '<url><loc>' + repoBase + '/' + s.id + '</loc></url>')
       .join('');

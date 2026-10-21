@@ -25,7 +25,7 @@ A **knowledge graph** in `registry/graph.json` records how skills relate — for
 ### How to use it
 
 ```bash
-git clone https://github.com/ashish7802/awesome-api-skills.git
+git clone https://github.com/Ghost7802/awesome-api-skills.git
 cd awesome-api-skills
 pnpm install
 pnpm build
@@ -46,7 +46,7 @@ We removed unverifiable marketing and fake infrastructure links before launch. S
 
 ### Get involved
 
-- Repository: https://github.com/ashish7802/awesome-api-skills
+- Repository: https://github.com/Ghost7802/awesome-api-skills
 - Contributing: see `CONTRIBUTING.md`
 - Specification: see `SPECIFICATION.md`
 

@@ -96,9 +96,9 @@ CI workflows in `.github/workflows/` trigger on `main`. If the default branch is
 | Link              | Target                                     | Notes                                   |
 | :---------------- | :----------------------------------------- | :-------------------------------------- |
 | Banner            | `.design/banner.svg`                       | Local asset                             |
-| License badge     | `ashish7802/awesome-api-skills`            | Verify repo is public for badge         |
+| License badge     | `Ghost7802/awesome-api-skills`            | Verify repo is public for badge         |
 | Build badge       | `build.yml` workflow                       | Requires `main` branch + successful run |
-| Clone URL         | `github.com/ashish7802/awesome-api-skills` | Matches remote                          |
+| Clone URL         | `github.com/Ghost7802/awesome-api-skills` | Matches remote                          |
 | `skills/` links   | Local paths                                | Verifiable in repo                      |
 | `CONTRIBUTING.md` | Local                                      | Verifiable                              |
 | `LICENSE`         | Local                                      | Verifiable                              |

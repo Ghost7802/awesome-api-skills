@@ -2,7 +2,7 @@
 
 **Date:** 2026-06-29  
 **Sprint:** Release Cleanup (Trust & Credibility)  
-**Repository:** https://github.com/ashish7802/awesome-api-skills
+**Repository:** https://github.com/Ghost7802/awesome-api-skills
 
 ---
 
@@ -17,7 +17,7 @@ This sprint removed unverifiable marketing, fake infrastructure links, and AI-ge
 | Category                                                                      | Action                                                                                               |
 | :---------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
 | Fake npm badge & install instructions                                         | Removed; README uses `pnpm install`, `pnpm build`, `pnpm dev`                                        |
-| Wrong GitHub org (`awesome-api-skills/core`)                                  | Badges and links point to `ashish7802/awesome-api-skills`                                            |
+| Wrong GitHub org (`awesome-api-skills/core`)                                  | Badges and links point to `Ghost7802/awesome-api-skills`                                            |
 | Fake domains (`*.awesome-api-skills.dev`, `official.registry`, `awesome.api`) | Removed or replaced with local paths / GitHub tree URLs                                              |
 | Hardcoded benchmark table                                                     | Removed from README; `scripts/dev/benchmark.js` no longer prints fake timings                        |
 | AI release artifacts                                                          | Deleted `RC2_REPORT.md`, `repository-report.json`, `performance-report.json`, `RELEASE_CHECKLIST.md` |
@@ -75,8 +75,8 @@ GitHub repository URLs return 404 to anonymous HEAD requests in this environment
 
 | Badge       | Target                                                                                  | Status                               |
 | :---------- | :-------------------------------------------------------------------------------------- | :----------------------------------- |
-| License     | `img.shields.io/github/license/ashish7802/awesome-api-skills`                           | Points to real repo name             |
-| Build       | `img.shields.io/github/actions/workflow/status/ashish7802/awesome-api-skills/build.yml` | Points to workflow file in this repo |
+| License     | `img.shields.io/github/license/Ghost7802/awesome-api-skills`                           | Points to real repo name             |
+| Build       | `img.shields.io/github/actions/workflow/status/Ghost7802/awesome-api-skills/build.yml` | Points to workflow file in this repo |
 | NPM version | —                                                                                       | **Removed** (package not published)  |
 
 ---

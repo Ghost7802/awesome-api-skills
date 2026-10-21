@@ -13,3 +13,8 @@ package-lock.json
 # Generated release artifacts
 checksums.txt
 sbom.spdx.json
+
+# AI Studio artifacts
+.aistudio/
+public/assets/aistudio/
+

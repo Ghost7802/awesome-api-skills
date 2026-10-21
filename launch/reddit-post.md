@@ -31,14 +31,14 @@ I've been working on a repo called **Awesome API Skills** and just tagged v1.0.0
 **Clone:**
 
 ```bash
-git clone https://github.com/ashish7802/awesome-api-skills.git
+git clone https://github.com/Ghost7802/awesome-api-skills.git
 cd awesome-api-skills
 pnpm install
 pnpm build
 pnpm dev   # local docs at localhost:5173
 ```
 
-Repo: https://github.com/ashish7802/awesome-api-skills
+Repo: https://github.com/Ghost7802/awesome-api-skills
 
 Happy to answer questions about the skill format (`SPECIFICATION.md`) or how relationships in the graph are defined.
 

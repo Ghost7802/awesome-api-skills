@@ -132,7 +132,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
 
           <a
-            href="https://github.com/ashish7802/awesome-api-skills"
+            href="https://github.com/Ghost7802/awesome-api-skills"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 text-slate-400 hover:text-white hover:bg-[#1e293b]/60 rounded-lg transition-colors border border-transparent hover:border-[#1e293b]"

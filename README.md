@@ -1,6 +1,6 @@
 <div align="center">
 
-![Awesome API Skills — Visual Overview](https://raw.githubusercontent.com/ashish7802/awesome-api-skills/master/media/banner.png)
+![Awesome API Skills — Visual Overview](https://raw.githubusercontent.com/Ghost7802/awesome-api-skills/master/media/banner.png)
 
 # Awesome API Skills
 
@@ -61,7 +61,7 @@ Copy the desired skill directory directly into your AI coding agent's configurat
 
 ```bash
 # Clone the repository shallowly
-git clone --depth 1 https://github.com/ashish7802/awesome-api-skills.git
+git clone --depth 1 https://github.com/Ghost7802/awesome-api-skills.git
 
 # Copy Stripe skill to Claude Code
 cp -r awesome-api-skills/skills/stripe .claude/skills/
@@ -163,7 +163,7 @@ We welcome contributions of new API skills and improvements to existing document
 
 1. **Fork and clone** the repository:
    ```bash
-   git clone https://github.com/ashish7802/awesome-api-skills.git
+   git clone https://github.com/Ghost7802/awesome-api-skills.git
    cd awesome-api-skills
    npm install
    npm run build:packages

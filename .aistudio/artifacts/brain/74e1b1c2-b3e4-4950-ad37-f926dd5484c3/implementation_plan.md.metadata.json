@@ -1,6 +1,0 @@
-{
-  "summary":  "Comprehensive plan to fix all GitHub Actions CI/CD deployment failures, repair npm package versions and lockfile, restore monorepo package compilation and golden snapshot synchronization, add new real verified skills, and audit the codebase to replace synthetic/unverified claims with real dynamically measured metrics.",
-  "updatedAt":  "2026-10-21T19:33:56.759969672Z",
-  "requestFeedback":  true,
-  "userFacing":  true
-}

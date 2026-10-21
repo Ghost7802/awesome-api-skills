@@ -12,7 +12,7 @@ We just shipped Awesome API Skills v1.0.0.
 
 Not hype. Count the folders. MIT licensed.
 
-https://github.com/ashish7802/awesome-api-skills
+https://github.com/Ghost7802/awesome-api-skills
 
 ---
 
@@ -75,7 +75,7 @@ Before launch we ran a trust sprint:
 Quick start:
 
 ```
-git clone https://github.com/ashish7802/awesome-api-skills
+git clone https://github.com/Ghost7802/awesome-api-skills
 pnpm install && pnpm build && pnpm dev
 ```
 
@@ -91,4 +91,4 @@ Contributions welcome — `CONTRIBUTING.md`
 
 ⭐ if this saves you a hallucinated webhook handler.
 
-https://github.com/ashish7802/awesome-api-skills
+https://github.com/Ghost7802/awesome-api-skills

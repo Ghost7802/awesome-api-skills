@@ -2,7 +2,7 @@
 
 **Date:** 2026-06-29  
 **Scope:** Trust & credibility sprint — Phase 1  
-**Repository:** https://github.com/ashish7802/awesome-api-skills
+**Repository:** https://github.com/Ghost7802/awesome-api-skills
 
 ---
 
@@ -26,7 +26,7 @@ The repository contained substantial marketing copy, fake external infrastructur
 | `apps/docs/.vitepress/config.mts`         | GitHub social link `github.com/awesome-api-skills` (404 org) | High     |
 | `CONTRIBUTING.md`                         | Clone URL pointed at wrong GitHub org                        | High     |
 
-**Verified live:** https://github.com/ashish7802/awesome-api-skills  
+**Verified live:** https://github.com/Ghost7802/awesome-api-skills  
 **Verified 404:** https://registry.npmjs.org/@awesome-api-skills/cli
 
 ---
@@ -135,7 +135,7 @@ Removed or flagged claims:
 | MIT license       | `LICENSE` file present                             |
 | Monorepo packages | 7 packages under `packages/`                       |
 | Knowledge graph   | `registry/graph.json` exists                       |
-| Git remote        | `ashish7802/awesome-api-skills`                    |
+| Git remote        | `Ghost7802/awesome-api-skills`                    |
 
 ---
 

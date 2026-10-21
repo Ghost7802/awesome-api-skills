@@ -60,7 +60,7 @@ const command: Command = {
             'cp -r skills/stripe .skills/stripe — use in your project',
           ]
         : [
-            'git clone https://github.com/ashish7802/awesome-api-skills.git',
+            'git clone https://github.com/Ghost7802/awesome-api-skills.git',
             'npm ci && npm run build',
           ],
     };

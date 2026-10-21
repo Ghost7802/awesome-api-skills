@@ -13,7 +13,7 @@ We're releasing **Awesome API Skills** — a repository of structured API knowle
 ## Quick start
 
 ```bash
-git clone https://github.com/ashish7802/awesome-api-skills.git
+git clone https://github.com/Ghost7802/awesome-api-skills.git
 cd awesome-api-skills
 pnpm install
 pnpm build
@@ -30,4 +30,4 @@ Use a skill by pointing your agent at `skills/<name>/SKILL.md`, or copy the fold
 
 MIT. Contributions welcome — see `CONTRIBUTING.md`.
 
-**Repository:** https://github.com/ashish7802/awesome-api-skills
+**Repository:** https://github.com/Ghost7802/awesome-api-skills

@@ -7,7 +7,7 @@ Thank you for your interest in contributing.
 Use Node.js 22.19+ (22.x), 24.x, or 26+ and npm.
 
 ```bash
-git clone https://github.com/ashish7802/awesome-api-skills.git
+git clone https://github.com/Ghost7802/awesome-api-skills.git
 cd awesome-api-skills
 npm ci
 npm run build

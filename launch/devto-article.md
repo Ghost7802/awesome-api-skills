@@ -2,7 +2,7 @@
 title: 'Shipping structured API skills for AI agents (and cleaning up our README first)'
 published: false
 tags: ai, open-source, typescript, cursor
-cover_image: https://raw.githubusercontent.com/ashish7802/awesome-api-skills/main/social-preview.png
+cover_image: https://raw.githubusercontent.com/Ghost7802/awesome-api-skills/main/social-preview.png
 ---
 
 LLMs are good at writing code. They are noticeably worse at remembering which Stripe webhook events exist, which PostgreSQL isolation level you need, or whether your Next.js route should be a Server Action.
@@ -48,7 +48,7 @@ The repository is a pnpm workspace:
 ## Try it locally
 
 ```bash
-git clone https://github.com/ashish7802/awesome-api-skills.git
+git clone https://github.com/Ghost7802/awesome-api-skills.git
 cd awesome-api-skills
 pnpm install
 pnpm build
@@ -94,7 +94,7 @@ We ran a trust sprint, documented findings in `docs/internal/AUDIT_REPORT.md`, a
 
 The skill format is specified in `SPECIFICATION.md`. New skills should include real examples and valid relationship targets.
 
-Repository: [github.com/ashish7802/awesome-api-skills](https://github.com/ashish7802/awesome-api-skills)
+Repository: [github.com/Ghost7802/awesome-api-skills](https://github.com/Ghost7802/awesome-api-skills)
 
 If you maintain API tooling or agent workflows, I'd appreciate issues and PRs — especially skills for APIs we have not covered yet.
 
