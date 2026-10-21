@@ -1,0 +1,51 @@
+{
+  "name": "supabase-ssr",
+  "version": "1.0.0",
+  "description": "Cookie-based server-side authentication and session management for Supabase in Next.js App Router, SvelteKit, and Remix.",
+  "categories": [
+    "Authentication",
+    "Databases",
+    "Security"
+  ],
+  "languages": [
+    "typescript"
+  ],
+  "author": "Awesome API Skills Team",
+  "license": "MIT",
+  "links": {
+    "API Reference": "https://supabase.com/docs/guides/auth/server-side/nextjs"
+  },
+  "relationships": [
+    {
+      "target": "supabase",
+      "type": "depends_on"
+    },
+    {
+      "target": "nextjs",
+      "type": "integrates_with"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "validationStatus": "validated",
+  "maintainer": "Awesome API Skills Team",
+  "lastUpdated": "2026-10-21",
+  "documentationSource": "https://supabase.com/docs/guides/auth/server-side/nextjs",
+  "supportedAgents": [
+    "cursor",
+    "claude-code",
+    "cline",
+    "continue"
+  ],
+  "compatibility": "SKILL.md v1.0",
+  "lastVerified": "2026-10-21",
+  "pitfalls": [
+    "Importing deprecated @supabase/auth-helpers-nextjs instead of @supabase/ssr",
+    "Using supabase.auth.getSession() on server routes to verify identity (spoofable cookie) instead of supabase.auth.getUser()",
+    "Using individual get/set/remove cookie methods instead of getAll and setAll in @supabase/ssr v0.5+"
+  ],
+  "checklist": [
+    "Using @supabase/ssr with createServerClient and createBrowserClient",
+    "Server routes and middleware authenticate via supabase.auth.getUser(), never getSession()",
+    "Cookie adapter implements getAll() and setAll()"
+  ]
+}

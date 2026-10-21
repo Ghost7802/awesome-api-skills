@@ -1,0 +1,59 @@
+{
+  "name": "vercel-ai-sdk",
+  "version": "1.0.0",
+  "description": "TypeScript toolkit for building AI-powered applications with streamText, generateObject, and multi-provider model routing.",
+  "categories": [
+    "AI",
+    "Developer Tools",
+    "Frontend Frameworks"
+  ],
+  "languages": [
+    "typescript"
+  ],
+  "author": "Awesome API Skills Team",
+  "license": "Apache-2.0",
+  "links": {
+    "API Reference": "https://sdk.vercel.ai/docs"
+  },
+  "relationships": [
+    {
+      "target": "openai",
+      "type": "integrates_with"
+    },
+    {
+      "target": "anthropic",
+      "type": "integrates_with"
+    },
+    {
+      "target": "nextjs",
+      "type": "works_well_with"
+    },
+    {
+      "target": "vercel",
+      "type": "deploys_to"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "validationStatus": "validated",
+  "maintainer": "Awesome API Skills Team",
+  "lastUpdated": "2026-10-21",
+  "documentationSource": "https://sdk.vercel.ai/docs",
+  "supportedAgents": [
+    "cursor",
+    "claude-code",
+    "cline",
+    "continue"
+  ],
+  "compatibility": "SKILL.md v1.0",
+  "lastVerified": "2026-10-21",
+  "pitfalls": [
+    "Using deprecated OpenAIStream and StreamingTextResponse from AI SDK v2/v3 instead of streamText() and result.toDataStreamResponse() in v4+",
+    "Passing raw JSON strings instead of Zod schemas to generateObject() or tool parameters",
+    "Calling provider SDKs directly in client components instead of server route handlers"
+  ],
+  "checklist": [
+    "Using ai v4+ core primitives (generateText, streamText, generateObject, streamObject)",
+    "Provider packages (@ai-sdk/openai, @ai-sdk/anthropic, @ai-sdk/google) installed separately",
+    "Streaming endpoints return result.toDataStreamResponse() for useChat compatibility"
+  ]
+}

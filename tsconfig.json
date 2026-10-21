@@ -1,13 +1,19 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true
+    "forceConsistentCasingInFileNames": true
   },
-  "exclude": ["node_modules", "dist", "skills", "scripts", "snapshots"]
+  "include": ["src", "api"],
+  "exclude": ["node_modules", "dist", "skills", "scripts", "snapshots", "packages", "apps"]
 }

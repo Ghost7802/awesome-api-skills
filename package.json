@@ -9,17 +9,15 @@
   ],
   "scripts": {
     "cli": "node packages/cli/dist/bin.js",
-    "build": "npm run build:packages && npm run build --workspace=@awesome-api-skills/docs",
-    "dev": "npm run dev --workspace=@awesome-api-skills/docs",
-    "lint": "eslint .",
+    "build": "vite build",
+    "dev": "vite --host 0.0.0.0 --port 3000",
+    "lint": "tsc --noEmit",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "test": "vitest run",
     "validate:skills": "node packages/cli/dist/bin.js validate",
     "benchmark": "node scripts/dev/benchmark.js",
     "build:packages": "npm run build --workspace=@awesome-api-skills/shared-types && npm run build --workspace=@awesome-api-skills/sdk && npm run build --workspace=@awesome-api-skills/registry && npm run build --workspace=@awesome-api-skills/validator && npm run build --workspace=@awesome-api-skills/generator && npm run build --workspace=@awesome-api-skills/core && npm run build --workspace=@awesome-api-skills/cli",
-    "pretest": "npm run build:packages",
-    "pretypecheck": "npm run build:packages",
     "generate-integrity": "node scripts/dev/generate-integrity.js",
     "test:snapshots": "npm run build:packages && tsx scripts/dev/dogfood.ts",
     "changeset": "changeset",
@@ -27,16 +25,21 @@
     "version:packages": "changeset version && npm install --package-lock-only --ignore-scripts"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.1",
     "@eslint/js": "^9.15.0",
+    "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^22.10.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.15.0",
     "prettier": "^3.4.1",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.13",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.16.0",
-    "vitest": "^5.0.0",
-    "tsx": "^4.23.13",
-    "@changesets/cli": "^2.31.1",
-    "vite": "^6.4.3"
+    "vite": "^6.4.3",
+    "vitest": "^5.0.0"
   },
   "engines": {
     "node": "^22.19.0 || ^24.0.0 || >=26.0.0"
@@ -45,5 +48,10 @@
     "vitepress": {
       "vite": "^6.4.3"
     }
+  },
+  "dependencies": {
+    "lucide-react": "^1.61.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   }
 }

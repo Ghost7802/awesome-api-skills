@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <rect width="32" height="32" rx="6" fill="#090d16"/>
+  <path d="M16 4L6 20h7l3-6 3 6h7L16 4z" fill="url(#prismGrad)"/>
+  <path d="M13 22l-2 4h10l-2-4h-6z" fill="#38bdf8"/>
+  <defs>
+    <linearGradient id="prismGrad" x1="6" y1="4" x2="26" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38bdf8"/>
+      <stop offset="0.5" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,56 @@
+{
+  "name": "langgraph",
+  "version": "1.0.0",
+  "description": "Stateful, multi-actor agent orchestration framework with cycles, persistence, and human-in-the-loop control.",
+  "categories": [
+    "AI",
+    "Workflows",
+    "Developer Tools"
+  ],
+  "languages": [
+    "typescript",
+    "python"
+  ],
+  "author": "Awesome API Skills Team",
+  "license": "MIT",
+  "links": {
+    "API Reference": "https://langchain-ai.github.io/langgraph/"
+  },
+  "relationships": [
+    {
+      "target": "langchain",
+      "type": "depends_on"
+    },
+    {
+      "target": "openai",
+      "type": "integrates_with"
+    },
+    {
+      "target": "anthropic",
+      "type": "integrates_with"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "validationStatus": "validated",
+  "maintainer": "Awesome API Skills Team",
+  "lastUpdated": "2026-10-21",
+  "documentationSource": "https://langchain-ai.github.io/langgraph/",
+  "supportedAgents": [
+    "cursor",
+    "claude-code",
+    "cline",
+    "continue"
+  ],
+  "compatibility": "SKILL.md v1.0",
+  "lastVerified": "2026-10-21",
+  "pitfalls": [
+    "Mutating graph state in-place inside node functions instead of returning partial state updates",
+    "Creating cyclic edges without a conditional termination branch to END, causing infinite recursion errors",
+    "Omitting thread_id inside configurable options when invoking a graph compiled with a checkpointer"
+  ],
+  "checklist": [
+    "State schema defined via Annotation.Root (TS) or TypedDict with Annotated reducers (Python)",
+    "Conditional edges explicitly map terminal conditions to END",
+    "Checkpointer (MemorySaver or PostgresSaver) configured with thread_id for multi-turn memory"
+  ]
+}

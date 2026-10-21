@@ -8,15 +8,13 @@
 
 <p>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/skills-116%20verified-38bdf8?style=flat-square" alt="116 verified skills">
-  <img src="https://img.shields.io/badge/graph-248%20edges-818cf8?style=flat-square" alt="248 graph edges">
-  <a href="https://github.com/ashish7802/awesome-api-skills/actions/workflows/quality.yml"><img src="https://github.com/ashish7802/awesome-api-skills/actions/workflows/quality.yml/badge.svg" alt="Quality Gates"></a>
-  <a href="https://github.com/ashish7802/awesome-api-skills/actions/workflows/tests.yml"><img src="https://github.com/ashish7802/awesome-api-skills/actions/workflows/tests.yml/badge.svg" alt="Tests"></a>
+  <img src="https://img.shields.io/badge/skills-120%20verified-38bdf8?style=flat-square" alt="120 verified skills">
+  <img src="https://img.shields.io/badge/graph-260%20edges-818cf8?style=flat-square" alt="260 graph edges">
+  <img src="https://img.shields.io/badge/runtime-React%20%2B%20Vite-10b981?style=flat-square" alt="React + Vite">
 </p>
 
 <p>
-  <a href="./docs/index.html"><strong>🔍 Skills Catalog</strong></a> · 
-  <a href="./apps/docs/src/playground.md"><strong>⚡ Interactive Playground</strong></a> · 
+  <a href="./index.html"><strong>🔍 Interactive Web Application</strong></a> · 
   <a href="./docs/BENCHMARKS_AND_EXAMPLES.md"><strong>📊 Benchmarks & Diffs</strong></a> · 
   <a href="./docs/CLI_USAGE.md"><strong>💻 CLI Reference</strong></a> · 
   <a href="#quick-start"><strong>🚀 Quick Start</strong></a> · 
@@ -32,11 +30,11 @@
 When AI coding agents (**Claude Code**, **Cursor**, **Cline**, **Continue**, **Windsurf**, or **OpenAI Codex**) generate code for modern APIs, they frequently introduce critical defects caused by stale training data:
 
 * ❌ **Broken Webhook Verification**: Parsing raw request bodies with `express.json()` before verifying cryptographic signatures (e.g. Stripe, Svix, Paddle), causing `SignatureVerificationError`.
-* ❌ **Deprecated SDK Methods**: Generating legacy SDK constructors or middleware (e.g. Clerk v4 `authMiddleware` instead of v5 `clerkMiddleware`, outdated Pinecone v0.x classes).
+* ❌ **Deprecated SDK Methods**: Generating legacy SDK constructors or middleware (e.g. Clerk v4 `authMiddleware` instead of v5 `clerkMiddleware`, outdated Vercel AI SDK v2 `OpenAIStream` instead of v4 `streamText`).
 * ❌ **Unbatched HTTP Loops**: Executing unbatched loops against transactional APIs (Resend, SendGrid, Twilio), resulting in `HTTP 429 Too Many Requests`.
 * ❌ **Missing Connection Pooling**: Spawning unpooled database connections inside Serverless functions (Neon, Supabase, PostgreSQL), exhausting connection limits.
 
-`awesome-api-skills` resolves this by providing **116 curated, schema-validated `SKILL.md` context files**. Dropping a skill into your workspace (`.claude/skills/`, `.cursor/skills/`, `.agents/skills/`) provides deterministic parameters, anti-hallucination checklists, and battle-tested code patterns before a single line of code is generated.
+`awesome-api-skills` resolves this by providing **120 curated, schema-validated `SKILL.md` context files**. Dropping a skill into your workspace (`.claude/skills/`, `.cursor/skills/`, `.agents/skills/`) provides deterministic parameters, anti-hallucination checklists, and battle-tested code patterns before a single line of code is generated.
 
 ---
 

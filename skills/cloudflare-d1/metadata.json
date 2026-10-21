@@ -1,0 +1,56 @@
+{
+  "name": "cloudflare-d1",
+  "version": "1.0.0",
+  "description": "Cloudflare's native serverless SQLite edge database with read replication, batch transactions, and Drizzle ORM support.",
+  "categories": [
+    "Databases",
+    "Cloud",
+    "Serverless"
+  ],
+  "languages": [
+    "typescript",
+    "sql"
+  ],
+  "author": "Awesome API Skills Team",
+  "license": "MIT",
+  "links": {
+    "API Reference": "https://developers.cloudflare.com/d1/"
+  },
+  "relationships": [
+    {
+      "target": "cloudflare-workers",
+      "type": "depends_on"
+    },
+    {
+      "target": "drizzle",
+      "type": "works_well_with"
+    },
+    {
+      "target": "turso",
+      "type": "alternative_to"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "validationStatus": "validated",
+  "maintainer": "Awesome API Skills Team",
+  "lastUpdated": "2026-10-21",
+  "documentationSource": "https://developers.cloudflare.com/d1/",
+  "supportedAgents": [
+    "cursor",
+    "claude-code",
+    "cline",
+    "continue"
+  ],
+  "compatibility": "SKILL.md v1.0",
+  "lastVerified": "2026-10-21",
+  "pitfalls": [
+    "Using string interpolation in env.DB.prepare() instead of parameterized .bind() calls (opening SQL injection vulnerabilities)",
+    "Attempting interactive BEGIN TRANSACTION / COMMIT SQL statements instead of using env.DB.batch([...])",
+    "Forgetting to bind d1_databases in wrangler.toml / wrangler.jsonc"
+  ],
+  "checklist": [
+    "All user inputs bound via env.DB.prepare(sql).bind(...params)",
+    "Multi-statement atomic transactions executed via env.DB.batch([...])",
+    "wrangler.toml includes [[d1_databases]] binding and database_id"
+  ]
+}
