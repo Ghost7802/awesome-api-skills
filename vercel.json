@@ -1,16 +1,22 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm install --no-audit --no-fund",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
   "cleanUrls": true,
+  "functions": {
+    "api/*.ts": {
+      "includeFiles": "src/data/skillsData.json"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!api/|assets/|favicon\\.svg).*)",
       "destination": "/index.html"
     }
   ],

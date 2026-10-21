@@ -185,6 +185,75 @@ export const SkillDetailModal: React.FC<SkillDetailModalProps> = ({
           {/* TAB: GUIDE */}
           {activeTab === 'guide' && (
             <div className="space-y-6">
+              {/* Verified API Performance Benchmarks Panel */}
+              {skill.benchmarks && (
+                <div className="p-4 rounded-xl bg-[#0f172a] border border-[#1e293b] space-y-3">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-sky-400">
+                      Verified API Performance Benchmarks
+                    </h4>
+                    <span className="text-[11px] font-mono text-slate-400">
+                      {skill.benchmarks.benchmarkSource}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs">
+                    <div className="p-2.5 rounded-lg bg-[#090d16] border border-[#1e293b]">
+                      <span className="text-[10px] font-mono uppercase text-slate-400 block">
+                        P50 / P99 Latency
+                      </span>
+                      <span className="font-mono font-bold text-emerald-400 text-sm mt-0.5 block">
+                        {skill.benchmarks.p50LatencyMs}ms / {skill.benchmarks.p99LatencyMs}ms
+                      </span>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-[#090d16] border border-[#1e293b]">
+                      <span className="text-[10px] font-mono uppercase text-slate-400 block">
+                        SLA / Availability
+                      </span>
+                      <span className="font-mono font-bold text-sky-400 text-xs mt-0.5 block truncate" title={skill.benchmarks.slaUptime}>
+                        {skill.benchmarks.slaUptime}
+                      </span>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-[#090d16] border border-[#1e293b]">
+                      <span className="text-[10px] font-mono uppercase text-slate-400 block">
+                        Context Budget
+                      </span>
+                      <span className="font-mono font-bold text-purple-400 text-xs mt-0.5 block">
+                        ~{skill.benchmarks.estimatedContextTokens} tokens ({(skill.benchmarks.skillMdBytes / 1024).toFixed(1)} KB)
+                      </span>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-[#090d16] border border-[#1e293b]">
+                      <span className="text-[10px] font-mono uppercase text-slate-400 block">
+                        Wire Protocol
+                      </span>
+                      <span className="font-mono font-bold text-slate-200 text-xs mt-0.5 block truncate" title={skill.benchmarks.protocol}>
+                        {skill.benchmarks.protocol}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs pt-1">
+                    <div className="p-2.5 rounded-lg bg-[#090d16]/70 border border-[#1e293b]">
+                      <span className="text-[10px] font-mono uppercase text-slate-400 block">
+                        Verified Throughput Profile
+                      </span>
+                      <span className="font-mono text-slate-200 mt-0.5 block">
+                        {skill.benchmarks.throughput}
+                      </span>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-[#090d16]/70 border border-[#1e293b]">
+                      <span className="text-[10px] font-mono uppercase text-slate-400 block">
+                        Production Rate Limit &amp; Quotas
+                      </span>
+                      <span className="font-mono text-amber-300/90 mt-0.5 block">
+                        {skill.benchmarks.rateLimit}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-[11px] font-mono text-slate-400 pt-0.5">
+                    Workload: <span className="text-slate-300">{skill.benchmarks.benchmarkWorkload}</span>
+                  </div>
+                </div>
+              )}
+
               {/* Graph Connections */}
               {skill.relationships && skill.relationships.length > 0 && (
                 <div className="p-4 rounded-xl bg-[#0f172a] border border-[#1e293b]">

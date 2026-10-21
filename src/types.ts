@@ -13,6 +13,26 @@ export interface SkillPrompt {
   content: string;
 }
 
+export interface SkillBenchmarks {
+  p50LatencyMs: number;
+  p99LatencyMs: number;
+  throughput: string;
+  rateLimit: string;
+  slaUptime: string;
+  protocol: string;
+  benchmarkWorkload: string;
+  benchmarkSource: string;
+  measuredParseMs: number;
+  measuredValidationMs: number;
+  skillMdBytes: number;
+  metadataBytes: number;
+  estimatedContextTokens: number;
+  graphOutDegree: number;
+  graphInDegree: number;
+  totalGraphDegree: number;
+  examplesCount: number;
+}
+
 export interface Skill {
   id: string;
   name: string;
@@ -42,6 +62,7 @@ export interface Skill {
   skillMd?: string;
   examples?: SkillExample[];
   prompts?: SkillPrompt[];
+  benchmarks?: SkillBenchmarks;
 }
 
 export interface GraphNode {

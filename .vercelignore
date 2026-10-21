@@ -1,0 +1,10 @@
+node_modules
+dist
+coverage
+.aistudio
+.git
+.DS_Store
+*.log
+bun.lock
+bun.lockb
+package-lock.json

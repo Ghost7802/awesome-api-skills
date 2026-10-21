@@ -10,5 +10,16 @@
     "isolatedModules": true,
     "resolveJsonModule": true
   },
-  "exclude": ["node_modules", "dist", "skills", "scripts", "snapshots", "src", "api"]
+  "include": ["api/**/*"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "skills",
+    "scripts",
+    "snapshots",
+    "src",
+    "packages",
+    "vite.config.ts",
+    "vitest.config.ts"
+  ]
 }

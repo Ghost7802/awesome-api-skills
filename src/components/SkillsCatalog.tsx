@@ -224,7 +224,7 @@ export const SkillsCatalog: React.FC<SkillsCatalogProps> = ({ skills, onSelectSk
                     {skill.description || 'Verified API skill specification for AI coding agents.'}
                   </p>
 
-                  {/* Category & Language Pills */}
+                  {/* Category, Language & Verified P50 Latency Pills */}
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {(skill.categories || ['General']).slice(0, 2).map((cat) => (
                       <span
@@ -242,6 +242,14 @@ export const SkillsCatalog: React.FC<SkillsCatalogProps> = ({ skills, onSelectSk
                         {lang}
                       </span>
                     ))}
+                    {skill.benchmarks && (
+                      <span
+                        className="px-1.5 py-0.5 rounded text-[10px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20"
+                        title={`Verified P50 Latency: ${skill.benchmarks.p50LatencyMs}ms | P99: ${skill.benchmarks.p99LatencyMs}ms`}
+                      >
+                        p50: {skill.benchmarks.p50LatencyMs}ms
+                      </span>
+                    )}
                   </div>
                 </div>
 
